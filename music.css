@@ -1,0 +1,10 @@
+#music {
+    width: 8%;
+    height: 8%;
+    background-image: url("YinYueGuan.gif");
+    position: fixed;
+    top: 2.5%;
+    right: 3%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

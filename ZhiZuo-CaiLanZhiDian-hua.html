@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>制作采蓝制靛</title>
+    <style>
+        html,body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .back,#gang,.music,#quan1,.tiao,.titl,#cao,.zicao,#quan2,#quan3,#shi,.zishi,#lou,.zilou,.jiantou {
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background-image: url("BeiJing.gif");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .kuang {
+            width: 99%;
+            height: 50%;
+            position: absolute;
+            left: 0.78125%;
+            top: 12.5%;
+            background-image: url("gongjulan.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .jiantou {
+            width: 6%;
+            height: 20%;
+            background-image: url("JianTou.gif");
+            position: absolute;
+            top: 34%;
+            left: 47%;
+        }
+        #gang {
+            width: 94%;
+            height: 50%;
+            position: absolute;
+            left: 4%;
+            top: 47%;
+            background-image: url("ShuiGang.gif");
+
+        }
+        .back {
+            width: 27%;
+            height: 9%;
+            background-image: url("AnNiu-FanHui.gif");
+            position: fixed;
+            bottom: 1%;
+            left: 4%;
+        }
+        .tiao {
+            width: 27%;
+            height: 9%;
+            background-image: url("AnNiu-TiaoGuo.gif");
+            position: fixed;
+            bottom: 1%;
+            right: 4%;
+        }
+        .titl {
+            width: 36%;
+            height: 10%;
+            background-image: url("AnNiu-CaiLanZhiDian.gif");
+            position: absolute;
+            top: 1%;
+            left: 2%;
+        }
+        #quan1 {
+            width: 31%;
+            height: 17%;
+            background-image: url("HeiQuanQuan.gif");
+            position: absolute;
+            left: 4%;
+            top: 15%;
+        }
+        #cao{
+            width: 40%;
+            height: 17%;
+            background-image: url("BanLanGeng.gif");
+            position: absolute;
+            left: 4%;
+            top: 15%;
+            z-index: 3;
+        }
+        .zicao {
+            width: 10%;
+            height: 9%;
+            background-image: url("Zi-BanLanGeng.gif");
+            position: absolute;
+            left: 27%;
+            top: 23%;
+        }
+        #quan2 {
+            width: 31%;
+            height: 17%;
+            background-image: url("HeiQuanQuan.gif");
+            position: absolute;
+            left: 35%;
+            top: 15%;
+        }
+        #shi {
+            width: 31%;
+            height: 17%;
+            background-image: url("ShiKuai.gif");
+            position: absolute;
+            top: 18%;
+            left: 34%;
+            z-index: 2;
+        }
+        .zishi {
+            width: 6%;
+            height: 7%;
+            background-image: url("Zi-ShiKuai.gif");
+            position: absolute;
+            top: 23%;
+            left: 63%;
+        }
+        #quan3 {
+            width: 31%;
+            height: 17%;
+            background-image: url("HeiQuanQuan.gif");
+            position: absolute;
+            left: 67%;
+            top: 15%;
+        }
+        #lou {
+            width: 31%;
+            height: 17%;
+            background-image: url("LouShao.gif");
+            position: absolute;
+            top: 15%;
+            left: 69%;
+        }
+        .zilou {
+            width: 9%;
+            height: 7%;
+            background-image: url("Zi-LouShao.gif");
+            position: absolute;
+            right: 0;
+            top: 23%;
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="kuang"></div>
+<div class="jiantou"></div>
+<div id="gang"></div>
+<a href="CaiLanZhiDian-hua.html"><div class="back"></div></a>
+<a href="hua-pin1.html"><div class="tiao"></div></a>
+<div class="titl"></div>
+<div id="quan1"></div>
+<div id="cao"></div>
+<div class="zicao"></div>
+<div id="quan2"></div>
+<div id="quan3"></div>
+<div id="shi"></div>
+<div class="zishi"></div>
+<div id="lou"></div>
+<div class="zilou"></div>
+<script>
+    var flag=false;
+    // 草的拖动效果
+    var cur1={
+        x:10,
+        y:180
+    }
+    var nx1,ny1,dx1,dy1,x1,y1;
+    function down1(){
+        flag=true;
+        var touch;
+        if(event.touches){
+            touch=event.touches[0];
+        }
+        else{
+            touch=event;
+        }
+        cur1.x=touch.clientX;
+        cur1.y=touch.clientY;
+        dx1=cao.offsetLeft;
+        dy1=cao.offsetTop;
+    }
+    function move1(){
+        if(flag){
+            var touch ;
+            if(event.touches){
+                touch = event.touches[0];
+            }
+            else {
+                touch = event;
+            }
+            nx1 = touch.clientX - cur1.x;
+            ny1 = touch.clientY - cur1.y;
+            x1 = dx1+nx1;
+            y1 = dy1+ny1;
+            if(x1>380){
+                x1=380;
+            }
+            if(x1<-90){
+                x1=-90;
+            }
+            if(y1>960){
+                y1=960;
+            }
+            if(y1<-70){
+                y1=-70;
+            }
+            if(x1>100&&x1<320&&y1>300&&y1<650){
+                cao.style.display="none";
+                gang1();
+                cur2={
+                    x:220,
+                    y:220
+                }
+            }
+            cao.style.left = x1+"px";
+            cao.style.top = y1 +"px";
+            document.addEventListener("touchmove",function(){
+                event.preventDefault();
+            },false);
+        }
+    }
+    function gang1(){
+        var gang=document.getElementById("gang");
+        gang.style.width="94%";
+        gang.style.height="60%";
+        gang.style.left="4%";
+        gang.style.top="40%";
+        gang.style.backgroundImage="url('DongTu-Fang BanLanGeng.gif')";
+    }
+    function guangquan1(){
+        var quan=document.getElementById("quan1");
+        quan.style.backgroundImage="url('HuangQuanQuan.gif')";
+        quan.style.top="14%";
+        setTimeout(function(){
+            quan.style.backgroundImage="url('HeiQuanQuan.gif')";
+            quan.style.top="15%";
+        },1500);
+    }
+    function yuantu1(){
+        var div=document.createElement("div");
+        document.body.appendChild(div);
+        div.style.width="39%";
+        div.style.height="16%";
+        div.style.position="absolute";
+        div.style.left="2%";
+        div.style.top="15%";
+        div.style.backgroundImage="url('BanLanGeng.gif')";
+        div.style.backgroundSize="contain";
+        div.style.backgroundRepeat="no-repeat";
+    }
+    function end(){
+        flag = false;
+    }
+    var cao = document.getElementById("cao");
+    cao.addEventListener("mousedown",function(){
+        down1();
+    },false);
+    cao.addEventListener("touchstart",function(){
+        down1();
+        guangquan1();
+        yuantu1();
+    },false)
+    cao.addEventListener("mousemove",function(){
+        move1();
+    },false);
+    cao.addEventListener("touchmove",function(){
+        move1();
+    },false)
+    document.body.addEventListener("mouseup",function(){
+        end();
+    },false);
+    cao.addEventListener("touchend",function(){
+        end();
+    },false);
+
+    // 石块的拖动效果
+    var nx2,ny2,dx2,dy2,x2,y2;
+    function down2(){
+        flag=true;
+        var touch;
+        if(event.touches){
+            touch=event.touches[0];
+        }
+        else{
+            touch=event;
+        }
+        cur2.x=touch.clientX;
+        cur2.y=touch.clientY;
+        dx2=shi.offsetLeft;
+        dy2=shi.offsetTop;
+    }
+    function move2(){
+        if(flag){
+            var touch ;
+            if(event.touches){
+                touch = event.touches[0];
+            }
+            else {
+                touch = event;
+            }
+            nx2 = touch.clientX - cur2.x;
+            ny2 = touch.clientY - cur2.y;
+            x2 = dx2+nx2;
+            y2 = dy2+ny2;
+            if(x2>430){
+                x2=430;
+            }
+            if(x2<-20){
+                x2=-20;
+            }
+            if(y2>990){
+                y2=990;
+            }
+            if(y2<-46){
+                y2=-46;
+            }
+            if(x2>100&&x2<290&&y2>300&&y2<706){
+                shi.style.display="none";
+                gang2();
+                cur3={
+                    x:420,
+                    y:180
+                }
+            }
+            shi.style.left = x2+"px";
+            shi.style.top = y2 +"px";
+            document.addEventListener("touchmove",function(){
+                event.preventDefault();
+            },false);
+        }
+    }
+    function guangquan2(){
+        var quan=document.getElementById("quan2");
+        quan.style.backgroundImage="url('HuangQuanQuan.gif')";
+        quan.style.top="14%";
+        setTimeout(function(){
+            quan.style.backgroundImage="url('HeiQuanQuan.gif')";
+            quan.style.top="15%";
+        },1500);
+    }
+    function yuantu2(){
+        var div=document.createElement("div");
+        document.body.appendChild(div);
+        div.style.width="31%";
+        div.style.height="17%";
+        div.style.position="absolute";
+        div.style.left="34%";
+        div.style.top="18%";
+        div.style.backgroundImage="url('ShiKuai.gif')";
+        div.style.backgroundSize="contain";
+        div.style.backgroundRepeat="no-repeat";
+    }
+    function gang2(){
+        var gang=document.getElementById("gang");
+        gang.style.width="94%";
+        gang.style.height="60%";
+        gang.style.left="4%";
+        gang.style.backgroundImage="url('DongTu-FangShiKuai.gif')";
+    }
+    var shi = document.getElementById("shi");
+    shi.addEventListener("mousedown",function(){
+        down2();
+    },false);
+    shi.addEventListener("touchstart",function(){
+        down2();
+        guangquan2();
+        yuantu2();
+    },false)
+    shi.addEventListener("mousemove",function(){
+        move2();
+    },false);
+    shi.addEventListener("touchmove",function(){
+        move2();
+    },false)
+    document.body.addEventListener("mouseup",function(){
+        end();
+    },false);
+    shi.addEventListener("touchend",function(){
+        end();
+    },false);
+
+    // 漏勺的拖动效果
+    var nx3,ny3,dx3,dy3,x3,y3;
+    function down3(){
+        flag=true;
+        var touch;
+        if(event.touches){
+            touch=event.touches[0];
+        }
+        else{
+            touch=event;
+        }
+        cur3.x=touch.clientX;
+        cur3.y=touch.clientY;
+        dx3=lou.offsetLeft;
+        dy3=lou.offsetTop;
+    }
+    function move3(){
+        if(flag){
+            var touch ;
+            if(event.touches){
+                touch = event.touches[0];
+            }
+            else {
+                touch = event;
+            }
+            nx3 = touch.clientX - cur3.x;
+            ny3 = touch.clientY - cur3.y;
+            x3 = dx3+nx3;
+            y3 = dy3+ny3;
+            if(x3>440){
+                x3=440;
+            }
+            if(x3<-25){
+                x3=-25;
+            }
+            if(y3<-30){
+                y3=-30;
+            }
+            if(y3>940){
+                y3=940;
+            }
+            if(x3>100&&x3<350&&y3>300&&y3<660){
+                lou.style.display="none";
+                gang3();
+            }
+            lou.style.left = x3+"px";
+            lou.style.top = y3+"px";
+            document.addEventListener("touchmove",function(){
+                event.preventDefault();
+            },false);
+        }
+    }
+    function guangquan3(){
+        var quan=document.getElementById("quan3");
+        quan.style.backgroundImage="url('HuangQuanQuan.gif')";
+        quan.style.top="14%";
+        setTimeout(function(){
+            quan.style.backgroundImage="url('HeiQuanQuan.gif')";
+            quan.style.top="15%";
+        },1500);
+    }
+    function yuantu3(){
+        var div=document.createElement("div");
+        document.body.appendChild(div);
+        div.style.width="31%";
+        div.style.height="17%";
+        div.style.position="absolute";
+        div.style.left="69%";
+        div.style.top="15%";
+        div.style.backgroundImage="url('LouShao.gif')";
+        div.style.backgroundSize="contain";
+        div.style.backgroundRepeat="no-repeat";
+    }
+    function gang3(){
+        var gang=document.getElementById("gang");
+        gang.style.width="94%";
+        gang.style.height="60%";
+        gang.style.left="4%";
+        gang.style.backgroundImage="url('DongTu-FangLouShao.gif')";
+        gang.onclick=function(){
+            gang.style.backgroundImage="url('DongTu-JiaoBan1.gif')";
+            setTimeout(function () {
+                gang.style.backgroundImage="url('DongTu-JiaoBan2.gif')";
+                gang.style.width="94%";
+                gang.style.height="60%";
+                gang.style.left="4%";
+            }, 2000);
+            gang.onclick=function(){
+                gang.style.backgroundImage="url('DongTu-JiaoBan2.gif')";
+            }
+        }
+    }
+    var lou = document.getElementById("lou");
+    lou.addEventListener("mousedown",function(){
+        down3();
+    },false);
+    lou.addEventListener("touchstart",function(){
+        down3();
+        guangquan3();
+        yuantu3();
+    },false)
+    lou.addEventListener("mousemove",function(){
+        move3();
+    },false);
+    lou.addEventListener("touchmove",function(){
+        move3();
+    },false)
+    document.body.addEventListener("mouseup",function(){
+        end();
+    },false);
+    lou.addEventListener("touchend",function(){
+        end();
+    },false);
+</script>
+</body>
+</html>

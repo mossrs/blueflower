@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>毛笔</title>
+    <style>
+  
+        .fanhui,#huabu,.music,.quan1,.tiaoguo,#maobi,.maobiZT,.quan2,.quan3,#kedao,.kedaoZT,.zishi,#yuanzao,.zilou,.gongjulan {
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background-image: url("Xiao\ bj.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+        .gongjulan{
+            width: 99%;
+            height: 50%;
+            position: absolute;
+            left: 0.78125%;
+            top: 12.5%;
+            background-image: url("gongjulan.png");
+            background-repeat: no-repeat;
+        }
+        #huabu {
+            width: 53.125%;
+            height: 28.3%;
+            position: absolute;
+            bottom: 20.5%;
+            left: 29.68%;
+         
+            background-image: url("banzi.png");
+            background-size: contain;
+            z-index: 2;
+            
+        }
+
+
+
+
+        .fanhui {
+            width: 20.3%;
+            height: 8.3%;
+            background-image: url("fanhuianniu.gif");
+            position: fixed;
+            bottom: 0.83%;
+            left: 1.56%;
+        }
+        .tiaoguo {
+            width: 20.3%;
+            height: 8.3%;
+            background-image: url("tiaoguo.gif");
+            position: fixed;
+            bottom: 0.83%;
+            right: 1.25%;
+        }
+        
+
+
+        .quan1 {
+            width: 28.125%;
+            height: 16.6%;
+            background-image: url("HuangSeGuangQuan.png");
+            position: absolute;
+            left: 3.125%;
+            top: 15%;
+        }
+        #maobi {
+            width: 35.9%;
+            height: 15%;
+            background-image: url("Mao\ Bi.png");
+            position: absolute;
+            left: 9.0625%;
+            top: 15%;
+            z-index: 3;
+        }
+        .maobiZT {
+            width: 9.375%;
+            height: 8.3%;
+            background-image: url("maobiZT.png");
+            position: absolute;
+            left: 20%;
+            top: 25%;
+        }
+        .quan2 {
+            width: 28.15%;
+            height: 16.6%;
+            background-image: url("HuangSeGuangQuan.png");
+            position: absolute;
+            left: 35.15%;
+            top: 15.15%;
+        }
+        #kedao {
+            width: 35.93%;
+            height: 15%;
+            background-image: url("KeDao.png");
+            position: absolute;
+            top: 15%;
+            left: 38.625%;
+            z-index: 3;
+        }
+        .kedaoZT {
+            width: 7.8125%;
+            height: 16.6%;
+            background-image: url("kedaoZT.png");
+            position: absolute;
+            top: 24%;
+            left: 60%;
+        }
+        /* .maobiZT {
+            width: 9.375%;
+            height: 83.3%;
+            background-image: url("maobiZT.png");
+            position: absolute;
+            left: 26.56%;
+            top: 25%;
+        } */
+        .quan3 {
+            width: 28.15%;
+            height: 16.6%;
+            background-image: url("HuangSeGuangQuan.png");
+            position: absolute;
+            left: 67.18%;
+            top: 15%;
+        }
+        #yuanzao {
+            width: 25%;
+            height: 15%;
+            background-image: url("ZaoZi.png");
+            position: absolute;
+            top: 15.8%;
+            left: 73.43%;
+            z-index: 3;
+        }
+        .yuanzaoZT {
+            width: 10%;
+            height: 6.66%;
+            background-image: url("YuanZao\ ZT.png");
+            background-size: contain;
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+    </style>
+    </style>
+
+    
+</head>
+<body>
+    <div id="huabu">
+
+    </div>
+    <div class="gongjulan"></div>
+  
+
+    <a href="YouZhiKeBan-hua.html"> <div class="fanhui"></div></a>
+    
+    <a href="hua-pin2.html"> <div class="tiaoguo"></div></a>
+    <div class="titl">
+
+    </div>
+    <div class="quan1"></div>
+    <div id="maobi">
+
+    </div>
+    <div id="kedao">
+
+    </div>
+    <div class="maobiZT">
+
+    </div>
+    <div class="quan2">
+
+    </div>
+    <div class="quan3">
+
+    </div>
+    
+
+    <div class="kedaoZT">
+        
+    </div>
+    <div id="yuanzao">
+
+    </div>
+    <div class="yuanzaoZT">
+
+    </div>
+    <script>
+        var flag=false;
+//拖动毛笔
+        var cur1={
+            x:10,
+            y:180
+        }
+        var nx1,ny1,dx1,dy1,x1,y1;
+        function down1(){
+            flag=true;
+            var touch;
+            if(event.touches){
+                touch=event.touches[0];
+            }
+            else{
+                touch=event;
+            }
+            cur1.x=touch.clientX;
+            cur1.y=touch.clientY;
+            dx1=maobi.offsetLeft;
+            dy1=maobi.offsetTop;
+        }
+        function move1(){
+            if(flag){
+                var touch ;
+                if(event.touches){
+                    touch = event.touches[0];
+                }
+                else {
+                touch = event;
+                }
+                nx1 = touch.clientX - cur1.x;
+                ny1 = touch.clientY - cur1.y;
+                x1 = dx1+nx1;
+                y1 = dy1+ny1;
+                if(x1>380){
+                    x1=380;
+                }
+                if(x1<-90){
+                    x1=-90;
+                }
+                if(y1>960){
+                    y1=960;
+                }
+                if(y1<-70){
+                    y1=-70;
+                }
+                if(x1>120&&x1<320&&y1>450&&y1<650){
+                    maobi.style.display="none";
+                    huabu1();
+                    cur2={
+                        x:220,
+                        y:220
+                     }
+                }
+                maobi.style.left = x1+"px";
+                maobi.style.top = y1 +"px";
+                document.addEventListener("touchmove",function(){
+                    event.preventDefault();
+                },false);
+            }
+        }
+        function huabu1(){
+            var huabu=document.getElementById("huabu");
+            huabu.style.width="46.875"+"%";
+            huabu.style.height="29.116"+"%";
+            huabu.style.left="28.125"+"%";
+            huabu.style.top="50"+"%";
+            huabu.style.backgroundImage="url('meihuahei.png')";
+        }
+        function end(){
+            flag = false;
+        }
+
+
+        function end(){
+            flag = false;
+        }
+        function end(){
+            flag = false;
+        }
+        var maobi = document.getElementById("maobi");
+        maobi.addEventListener("mousedown",function(){
+            down1();
+        },false);
+        maobi.addEventListener("touchstart",function(){
+            down1();
+        },false)
+        maobi.addEventListener("mousemove",function(){
+            move1();
+        },false);
+       maobi.addEventListener("touchmove",function(){
+            move1();
+        },false)
+       document.body.addEventListener("mouseup",function(){
+            end();
+        },false);
+       maobi.addEventListener("touchend",function(){
+            end();
+        },false);
+
+
+// 拖动刻刀
+        var nx2,ny2,dx2,dy2,x2,y2;
+        function down2(){
+            flag=true;
+            var touch;
+            if(event.touches){
+                touch=event.touches[0];
+            }
+            else{
+                touch=event;
+            }
+            cur2.x=touch.clientX;
+            cur2.y=touch.clientY;
+            dx2=kedao.offsetLeft;
+            dy2=kedao.offsetTop;
+        }
+        function move2(){
+            if(flag){
+                var touch ;
+                if(event.touches){
+                    touch = event.touches[0];
+                }
+                else {
+                touch = event;
+                }
+                nx2 = touch.clientX - cur2.x;
+                ny2 = touch.clientY - cur2.y;
+                x2 = dx2+nx2;
+                y2 = dy2+ny2;
+               if(x2>430){
+                x2=430;
+               }
+               if(x2<-20){
+                x2=-20;
+               }
+               if(y2>990){
+                y2=990;
+               }
+               if(y2<-46){
+                y2=-46;
+               }
+               if(x2>130&&x2<290&&y2>500&&y2<706){
+                kedao.style.display="none";
+                huabu2();
+                cur3={
+                    x:420,
+                    y:180
+                }
+               }
+                kedao.style.left = x2+"px";
+                kedao.style.top = y2 +"px";
+                document.addEventListener("touchmove",function(){
+                    event.preventDefault();
+                },false);
+            }
+        }
+        function huabu2(){
+            var huabu=document.getElementById("huabu");
+            huabu.style.width="46.8%"+"%";
+            huabu.style.height="29.16"+"%";
+            huabu.style.left="28.125"+"%";
+            huabu.style.top="50"+"%";
+            huabu.style.backgroundImage="url('meihuabai.png')";
+        }
+        var kedao = document.getElementById("kedao");
+        kedao.addEventListener("mousedown",function(){
+            down2();
+        },false);
+        kedao.addEventListener("touchstart",function(){
+            down2();
+        },false)
+        kedao.addEventListener("mousemove",function(){
+            move2();
+        },false);
+        kedao.addEventListener("touchmove",function(){
+            move2();
+        },false)
+       document.body.addEventListener("mouseup",function(){
+            end();
+        },false);
+        kedao.addEventListener("touchend",function(){
+            end();
+        },false);
+
+
+
+    // 圆凿拖动
+    var nx3,ny3,dx3,dy3,x3,y3;
+        function down3(){
+            flag=true;
+            var touch;
+            if(event.touches){
+                touch=event.touches[0];
+            }
+            else{
+                touch=event;
+            }
+            cur3.x=touch.clientX;
+            cur3.y=touch.clientY;
+            dx3=yuanzao.offsetLeft;
+            dy3=yuanzao.offsetTop;
+        }
+        function move3(){
+            if(flag){
+                var touch ;
+                if(event.touches){
+                    touch = event.touches[0];
+                }
+                else {
+                touch = event;
+                }
+                nx3 = touch.clientX - cur3.x;
+                ny3 = touch.clientY - cur3.y;
+                x3 = dx3+nx3;
+                y3 = dy3+ny3;
+               if(x3>440){
+                x3=440;
+               }
+               if(x3<-25){
+                x3=-25;
+               }
+               if(y3<-30){
+                y3=-30;
+               }
+               if(y3>940){
+                y3=940;
+               }
+               if(x3>120&&x3<350&&y3>500&&y3<660){
+                yuanzao.style.display="none";
+                huabu3();
+               }
+                yuanzao.style.left = x3+"px";
+                yuanzao.style.top = y3+"px";
+                document.addEventListener("touchmove",function(){
+                    event.preventDefault();
+                },false);
+            }
+        }
+        function huabu3(){
+            var yuanzao=document.getElementById("yuanzao");
+            yuanzao.style.width="93.75"+"%";
+            yuanzao.style.height="55.833"+"%";
+            yuanzao.style.left="6.09"+"%";
+            huabu.style.backgroundImage="url('meihuaZZ.png')";
+            // huabu.onclick=function(){
+            //     huabu.style.backgroundImage="url(')";
+            //     setTimeout(function () {
+            //         huabu.style.backgroundImage="url('')";
+            //         huabu.style.width="93.75"+"%";
+            //         huabu.style.height="57.5"+"%";
+            //         huabu.style.left="6.25"+"%";
+            //     }, 2000);
+            //     huabu.onclick=function(){
+            //         huabu.style.backgroundImage="url('')";
+            //     }
+            // }
+        }
+
+        var yuanzao = document.getElementById("yuanzao");
+        yuanzao.addEventListener("mousedown",function(){
+            down3();
+        },false);
+        yuanzao.addEventListener("touchstart",function(){
+            down3();
+        },false)
+        yuanzao.addEventListener("mousemove",function(){
+            move3();
+        },false);
+       yuanzao.addEventListener("touchmove",function(){
+            move3();
+        },false)
+       document.body.addEventListener("mouseup",function(){
+            end();
+        },false);
+       yuanzao.addEventListener("touchend",function(){
+            end();
+        },false);
+    </script>
+</body>
+</html>

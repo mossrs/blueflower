@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>油纸刻板</title>
+    <style>
+         html,body {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
+        /* body>* {
+            box-sizing: border-box;
+            width: 1300px;
+            height: 1200px;
+            margin: 0 auto;
+        } */
+        body {
+            width: 100%;
+            height: 100%;
+            background-image: url("BeiJing.gif");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .ren3,.zi2,.content2,.tiao,.ren2,.ren1,.zi1,.content1 {
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .ren1 {
+            width: 45%;
+            height: 45%;
+            background-image: url("GuangQuanRen1.gif");
+            position: absolute;
+            top: 4%;
+            left: 12%;
+        }
+        .zi1 {
+            width: 19%;
+            height: 12%;
+            background-image: url("AnNiu-CaiLanZhiDian.gif");
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            left: 23%;
+        }
+        .content1 {
+            width: 50%;
+            height: 30%;
+            background-image: url("BuZhou-CaiLanZhiDian.gif");
+            position: absolute;
+            left: 12%;
+            bottom: 10%;
+        }
+        .ren2 {
+            width: 49%;
+            height: 49%;
+            background-image: url("Ren02.gif");
+            position: absolute;
+            top: 3%;
+            left: 84%;
+            opacity: 0;
+            animation: ren1 6s linear;
+        }
+        @keyframes ren1 {
+            0%{opacity: 1;}
+            50%{opacity: 1;}
+            55%{opacity: 0;}
+        }
+        .ren3 {
+            width: 50%;
+            height: 50%;
+            background-image: url("GuangQuanRen2.gif");
+            position: absolute;
+            top: 4%;
+            left: 87%;
+            opacity: 1;
+            animation: ren2 6s linear;
+        }
+        @keyframes ren2 {
+            0%{opacity: 0;}
+            50%{opacity: 0;}
+            56%{opacity: 0.6;}
+            57%{opacity: 1;}
+            100%{opacity: 1;}
+        }
+        .zi2 {
+            width: 19%;
+            height: 12%;
+            background-image: url("AnNiu-YouZhiKeBan.gif");
+            background-size: contain;
+            position: absolute;
+            top: 52%;
+            left: 95%;
+        }
+        .content2 {
+            width: 68%;
+            height: 21%;
+            background-image: url("BuZhou-YouZhiKeBan.gif");
+            position: absolute;
+            left: 85%;
+            bottom: 17%;
+        }
+       
+        #big {
+            width: 200%;
+            height: 100%;
+            position: relative;
+        }
+        .tiao {
+            width: 20%;
+            height: 8%;
+            background-image: url("AnNiu-TiaoGuo.gif");
+            position: absolute;
+            left: 120%;
+            bottom: 2%;
+        }
+
+    </style>
+    <script type="text/javascript">
+        var left=0;
+        var raf;
+        function init(){
+            moveImage();
+        }
+        function moveImage(){
+            document.getElementById("big").style.left=left+"%";
+            left-=0.8;
+            if(left<=-160){
+                left=-160;
+            }
+            raf=window.requestAnimationFrame(moveImage);
+        }
+    </script>
+</head>
+<body onload="init()">
+    <div id="big">
+        <div class="left">
+            <div class="ren1"></div>
+            <div class="zi1"></div>
+            <div class="content1"></div>
+        </div>
+        <div class="right">
+            <div class="ren2"></div>
+            <a href="ZhiZuo-YouZhiKeBan-fen.html"><div class="ren3"></div></a>
+            <div class="zi2"></div>
+            <div class="content2"></div>
+            <a href="ZhiZuo-YouZhiKeBan-fen.html"><div class="tiao"></div></a>
+        </div>
+    </div>
+</body>
+</html>

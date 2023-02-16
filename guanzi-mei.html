@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>lanburuguan
+    </title>
+    
+    <style>
+        .body,#shuigang,#bu,.gongjulan,.fanhui,.tiaoguo,.anniu
+        {
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        html,body {
+           width: 100%;
+           height: 100%;
+           margin: 0;
+       }
+       .gongjulan{
+            width: 99%;
+            height: 50%;
+            position: absolute;
+            left: 0.78%;
+            top: 12.5%;
+            background-image: url("gongjulan.png");
+            background-repeat: no-repeat;
+        }
+
+       body{
+           background-image: url("bj\ .png");
+           background-repeat: no-repeat;
+           background-attachment: fixed;
+           background-size: cover;
+       }
+
+       #shuigang {
+            width: 93.75%;
+            height: 50%;
+            position: fixed;
+            top: 58.3%;
+            left: 3.9%;
+            background-image: url("Gang.gif");
+            background-size: contain;
+        } 
+
+
+        
+        .tiaoguo {
+            width: 22%;
+            height: 10%;
+            background-image: url("tiao.png");
+            position: fixed;
+            left: 81%;
+            top: 92%;
+            z-index: 3;
+        }
+
+     
+        .guangquan{
+            width: 30%;
+            height: 30%;
+            position: absolute;
+            top: 15%;
+            left: 35%;
+            background-image: url("HuangSeGuangQuan.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        #bu{
+            width: 25%;
+            height: 25%;
+            position:absolute;
+            top: 18.3%;
+            left: 37.5%;
+            background-repeat: no-repeat;
+            background-image: url("bu.png");
+            z-index: 2;
+        }
+    
+        .fanhui {
+            width: 20%;
+            height:8%;
+            background-image: url("fan.png");
+            position: fixed;
+            left: 3%;
+            top: 92%;
+        }
+
+      
+        .jiantou{
+            width:100%;
+            height:300%;
+            background-image: url("b9\ jiantou.png");
+            position: fixed;
+            background-repeat: no-repeat;
+            top: 30.5%;
+            left:45.315%;
+ 
+
+         }
+
+         .anniu {
+            background-image: url("AnNiu-PiaoXiChengPing.gif");
+            width: 30%;
+            height: 30%;
+            position: absolute;
+            top: 5%;
+            left: 3%;
+         }
+
+        
+
+
+       </style>
+</head>
+<body>
+    <div id="shuigang">
+        <!-- <a href="PiaoXiChengPing-mei.html"><div class="fanhui"></div></a>
+        <a href="mei-pin7.html"><div class="tiaoguo"></div></a> -->
+    </div>
+
+    <a href="PiaoXiChengPing-mei.html"><div class="fanhui"></div></a>
+    <a href="mei-pin7.html"><div class="tiaoguo"></div></a>
+    <div class="gongjulan"></div>
+    <!-- <div class="tiaoguo" > -->
+
+    <!-- </div> -->
+    <!-- <div class="fanhui"> -->
+        
+
+    <!-- </div> -->
+    <div class="guangquan">
+
+    </div> 
+    <div id="bu"></div>
+
+
+    <div class="anniu">
+
+    </div>
+
+    <!-- <div class="piaoxichengpin"> -->
+
+    </div>
+    <div class="jiantou">
+
+    </div>
+   
+    
+    <script>
+        var flag=false;
+             var cur1={
+            x:240,
+            y:200
+        }
+        var nx1,ny1,dx1,dy1,x1,y1;
+        function down1(){
+            flag=true;
+            var touch;
+            if(event.touches){
+                touch=event.touches[0];
+            }
+            else{
+                touch=event;
+            }
+            cur1.x=touch.clientX;
+            cur1.y=touch.clientY;
+            dx1=bu.offsetLeft;
+            dy1=bu.offsetTop;
+        }
+        function move1(){
+            if(flag){
+                var touch ;
+                if(event.touches){
+                    touch = event.touches[0];
+                }
+                else {
+                touch = event;
+                }
+                nx1 = touch.clientX - cur1.x;
+                ny1 = touch.clientY - cur1.y;
+                x1 = dx1+nx1;
+                y1 = dy1+ny1;
+                if(x1>380){
+                    x1=380;
+                }
+                if(x1<-90){
+                    x1=-90;
+                }
+                if(y1>960){
+                    y1=960;
+                }
+                if(y1<-70){
+                    y1=-70;
+                }
+                if(x1>120&&x1<320&&y1>550&&y1<650){
+                    bu.style.display="none";
+                    shuigang();
+                }
+                bu.style.left = x1+"px";
+                bu.style.top = y1 +"px";
+                document.addEventListener("touchmove",function(){
+                    event.preventDefault();
+                },false);
+            }
+        }
+        function shuigang(){
+            var shuigang=document.getElementById("shuigang");
+            shuigang.style.width="110.375"+"%";
+            shuigang.style.height="110.66"+"%";
+            shuigang.style.top="58.16"+"%";
+            shuigang.style.left="-2.9"+"%";
+            shuigang.style.backgroundImage="url('piaoxijieduan.GIF')";
+        }
+        function end(){
+            flag = false;
+        }
+        var bu = document.getElementById("bu");
+        bu.addEventListener("mousedown",function(){
+            down1();
+        },false);
+        bu.addEventListener("touchstart",function(){
+            down1();
+        },false)
+        bu.addEventListener("mousemove",function(){
+            move1();
+        },false);
+       bu.addEventListener("touchmove",function(){
+            move1();
+        },false)
+       document.body.addEventListener("mouseup",function(){
+            end();
+        },false);
+       bu.addEventListener("touchend",function(){
+            end();
+        },false);
+
+
+        
+    </script>
+</body>
+
+</html>

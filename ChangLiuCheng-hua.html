@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>长流程</title>
+    <style>
+         html,body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        .ren1,.lian1,.shua1,.ren2,.lian2,.shua2,.ren3,.ren4,.ren5,.ren6,.ren7,.ren8,.lian3,.lian4,.lian5,.lian6,.lian7,.shua3,.shua4,.shua5,.shua6,.shua7,.shua8 {
+            background-repeat: no-repeat;
+            background-size:contain ;
+            position: absolute;
+        }
+        .main {
+            width: 900%;
+            height: 100%;
+            background-image: url("BeiJing.gif");
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+        .ren1 {
+            width: 80%;
+            height:50%;
+            background-image: url("Ren01.gif");
+            top: 15%;
+            left: 15.6%;
+        }
+        .lian1 {
+            background-image: url("LianJieXia.gif");
+            width: 50%;
+            height: 40%;
+            top: 40%;
+            left: 85%;
+        }
+        .shua1 {
+            background-image: url("AnNiu-CaiLanZhiDian.gif");
+            width: 40%;
+            height: 10%;
+            top: 70%;
+            left: 35%;
+        }
+
+
+        .ren2 {
+            width: 80%;
+            height:50%;
+            background-image: url("Ren02.gif");
+            top: 37%;
+            left: 125.6%;
+        }
+        .lian2 {
+            background-image: url("LianJieShang.gif");
+            width: 50%;
+            height: 40%;
+            top: 40%;
+            left: 190%;
+        }
+        .shua2 {
+            background-image: url("AnNiu-YouZhiKeBan.gif");
+            width: 40%;
+            height: 10%;
+            top: 25%;
+            left: 147%;
+        }
+
+
+        .ren3 {
+            width: 80%;
+            height:50%;
+            background-image: url("Ren03.gif");
+            top: 15%;
+            left: 235.6%;
+        }
+        .lian3 {
+            background-image: url("LianJieXia.gif");
+            width: 50%;
+            height: 40%;
+            top: 40%;
+            left: 300%;
+        }
+        .shua3 {
+            background-image: url("AnNiu-ZhiFangRanJiang.gif");
+            width: 40%;
+            height: 10%;
+            top: 70%;
+            left: 250%;
+        }
+
+        .ren4 {
+            width: 80%;
+            height:50%;
+            background-image: url("Ren04.gif");
+            top: 37%;
+            left: 355.6%;
+        }
+        .lian4 {
+            background-image: url("LianJieShang.gif");
+            width: 50%;
+            height: 40%;
+            top: 40%;
+            left: 420%;
+        }
+        .shua4 {
+            background-image: url("AnNiu-KaoHuaShangRan.gif");
+            width: 40%;
+            height: 10%;
+            top: 25%;
+            left: 370%;
+        }
+
+        .ren5 {
+            width: 80%;
+            height:50%;
+            background-image: url("Ren05.gif");
+            top: 15%;
+            left: 465.6%;
+        }
+        .lian5 {
+            background-image: url("LianJieXia.gif");
+            width: 50%;
+            height: 40%;
+            top: 40%;
+            left: 535%;
+        }
+        .shua5 {
+            background-image: url("AnNiu-RuGangJinRan.gif");
+            width: 40%;
+            height: 10%;
+            top: 70%;
+            left: 485%;
+        }
+
+        .ren6 {
+            width: 80%;
+            height:50%;
+            background-image: url("Ren06.gif");
+            top: 37%;
+            left: 580%;
+        }
+        .lian6 {
+            background-image: url("LianJieShang.gif");
+            width: 50%;
+            height: 40%;
+            top: 40%;
+            left: 655%;
+        }
+        .shua6 {
+            background-image: url("AnNiu-GuaJiangJieDuan.gif");
+            width: 40%;
+            height: 10%;
+            top: 25%;
+            left: 600%;
+        }
+
+        .ren7 {
+            width: 80%;
+            height:50%;
+            background-image: url("Ren07.gif");
+            top: 15%;
+            left: 700%;
+        }
+        .lian7 {
+            background-image: url("LianJieXia.gif");
+            width: 50%;
+            height: 40%;
+            top: 40%;
+            left: 775%;
+        }
+        .shua7 {
+            background-image: url("AnNiu-PiaoXiChengPing.gif");
+            width: 40%;
+            height: 10%;
+            top: 70%;
+            left: 725%;
+        }
+
+        .ren8 {
+            width: 70%;
+            height:50%;
+            background-image: url("Ren08.gif");
+            top: 37%;
+            left: 830%;
+        }
+        .shua8 {
+            background-image: url("AnNiu-ShaiBu.gif");
+            width: 40%;
+            height: 10%;
+            top: 25%;
+            left: 840%;
+        }
+
+        .tiaoguo {
+            background-image: url("AnNiu-TiaoGuo.gif");
+            background-repeat: no-repeat;
+            background-size:contain ;
+            width: 25%;
+            height: 10%;
+            position: fixed;
+            bottom: 3%;
+            right: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="ren1"></div>
+        <div class="lian1"></div>
+        <div class="shua1"></div>
+
+        <div class="ren2"></div>
+        <div class="lian2"></div>
+        <div class="shua2"></div>
+
+        <div class="ren3"></div>
+        <div class="lian3"></div>
+        <div class="shua3"></div>
+
+        <div class="ren4"></div>
+        <div class="lian4"></div>
+        <div class="shua4"></div>
+
+        <div class="ren5"></div>
+        <div class="lian5"></div>
+        <div class="shua5"></div>
+
+        <div class="ren6"></div>
+        <div class="lian6"></div>
+        <div class="shua6"></div>
+
+        <div class="ren7"></div>
+        <div class="lian7"></div>
+        <div class="shua7"></div>
+
+        <div class="ren8"></div>
+        <div class="shua8"></div>
+
+        <a href="hua-pin9.html"><div class="tiaoguo"></div></a>
+    </div>
+    
+</body>
+</html>
